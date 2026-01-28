@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowRenew | Reveal Your Natural Radiance</title>
+    <title>GlowRenew | Organic Luxury Skincare</title>
     <style>
         /* --- RESET & VARIABLES --- */
         :root {
-            --primary-color: #6B8E23; /* Olive Green for nature/freshness */
-            --secondary-color: #Fdfbf7; /* Off-white cream background */
-            --accent-color: #D4A59A; /* Soft Rose Gold for highlights */
-            --text-dark: #333333;
-            --text-light: #666666;
+            --bg-color: #faf9f6;      /* Off-white/Cream */
+            --text-main: #2c2c2c;     /* Soft Black */
+            --primary-brown: #5D4037; /* Deep Earthy Brown */
+            --accent-sage: #8F9779;   /* Muted Sage Green */
             --white: #ffffff;
-            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --font-serif: 'Georgia', serif; /* For headings */
+            --font-heading: 'Playfair Display', 'Georgia', serif;
+            --font-body: 'Lato', 'Helvetica', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-main);
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* --- UTILITIES --- */
+        /* --- UTILITY CLASSES --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -39,410 +34,303 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--primary-color);
+            padding: 15px 40px;
+            background-color: var(--primary-brown);
             color: var(--white);
             text-decoration: none;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            border-radius: 0; /* Sharp corners for luxury feel */
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            border: 2px solid var(--primary-color);
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: opacity 0.3s ease;
         }
 
         .btn:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-        }
-
-        /* --- HEADER --- */
-        header {
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background-color: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
+        /* --- NAVIGATION --- */
         nav {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: var(--primary-brown);
             font-weight: bold;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
         }
 
         .nav-links a {
+            margin-left: 30px;
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* --- HERO SECTION --- */
         .hero {
             display: flex;
             align-items: center;
-            padding: 80px 0;
             min-height: 80vh;
+            gap: 50px;
+            padding: 50px 0;
         }
 
-        .hero-content {
+        .hero-text {
             flex: 1;
-            padding-right: 50px;
         }
 
         .hero h1 {
-            font-family: var(--font-serif);
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 20px;
-            color: var(--text-dark);
+            color: var(--primary-brown);
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
+            color: #666;
+            margin-bottom: 40px;
             max-width: 450px;
         }
 
         .hero-image {
-            flex: 1;
-            position: relative;
+            flex: 1.2;
+            height: 500px;
+            overflow: hidden;
         }
 
         .hero-image img {
             width: 100%;
-            border-radius: 20px 0 20px 0;
-            box-shadow: 20px 20px 0 var(--accent-color);
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area beautifully */
+            border-radius: 5px;
         }
 
-        /* --- BENEFITS --- */
-        .benefits {
-            padding: 80px 0;
+        /* --- FEATURED PRODUCT --- */
+        .featured {
+            padding: 100px 0;
             background-color: var(--white);
         }
 
-        .benefits-grid {
+        .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .featured-img img {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --- COLLECTION GRID --- */
+        .collection {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .benefit-card {
-            padding: 30px;
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-brown);
         }
 
-        .benefit-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 15px;
-            font-family: var(--font-serif);
-        }
-
-        /* --- PRODUCTS --- */
-        .products {
-            padding: 100px 0;
+        .section-subtitle {
+            display: block;
+            margin-bottom: 60px;
+            color: #888;
+            font-style: italic;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .product-card {
             background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            transition: transform 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .product-img {
-            height: 300px;
+        .product-card img {
             width: 100%;
-            object-fit: cover;
+            height: 300px;
+            object-fit: contain; /* Keeps the whole bottle visible */
+            margin-bottom: 20px;
         }
 
-        .product-info {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .product-title {
-            font-family: var(--font-serif);
+        .product-name {
             font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .product-price {
-            color: var(--primary-color);
+            color: var(--accent-sage);
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: block;
+            font-size: 1rem;
         }
 
-        .btn-sm {
-            padding: 10px 20px;
-            font-size: 0.8rem;
-        }
-
-        /* --- TESTIMONIALS --- */
-        .testimonials {
-            background-color: var(--accent-color);
-            padding: 80px 0;
+        /* --- INGREDIENTS BANNER --- */
+        .ingredients {
+            background-color: var(--primary-brown);
             color: var(--white);
+            padding: 80px 0;
             text-align: center;
         }
 
-        .testimonial-quote {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-style: italic;
+        .ingredients p {
             max-width: 700px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-style: italic;
+            line-height: 1.6;
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #2c2c2c;
-            color: #ccc;
-            padding: 60px 0 20px 0;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer h4 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-family: var(--font-serif);
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer ul li a:hover {
-            color: var(--white);
-        }
-
-        .copyright {
+            padding: 50px 0;
             text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 20px;
             font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #ddd;
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero {
+            .hero, .featured-grid {
                 flex-direction: column;
-                padding-top: 40px;
                 text-align: center;
             }
-
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 40px;
+            
+            .hero-image {
+                width: 100%;
+                height: 300px;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                margin: 0 auto 30px auto;
-            }
-
             .nav-links {
-                display: none; /* Hidden on mobile for simplicity */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav>
         <div class="container">
-            <nav>
-                <div class="logo">GlowRenew.</div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#products">Shop</a>
-                    <a href="#about">Our Story</a>
-                    <a href="#contact" class="btn btn-sm" style="margin-left: 10px;">Contact</a>
-                </div>
-            </nav>
+            <div class="logo">GlowRenew.</div>
+            <div class="nav-links">
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Journal</a>
+                <a href="#">Cart (0)</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero container" id="home">
-        <div class="hero-content">
-            <h1>Science Meets Nature for Your Best Skin.</h1>
-            <p>Experience the transformation with our clinically proven, plant-based formulas designed to hydrate, repair, and renew.</p>
-            <a href="#products" class="btn">Shop The Collection</a>
+    <section class="hero container">
+        <div class="hero-text">
+            <h1>Nature's Essence,<br>Refined for You.</h1>
+            <p>Immerse yourself in skincare crafted from the earth’s purest botanicals. Simple, effective, and luxurious.</p>
+            <a href="#" class="btn">Discover the Routine</a>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="GlowRenew Skincare Model">
+            <img src="images (15).jpeg" alt="Spa Skincare Setup">
         </div>
     </section>
 
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">Why GlowRenew?</h2>
-            <p class="section-subtitle">We believe skincare should be effective, transparent, and luxurious.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌿</div>
-                    <h3>100% Natural</h3>
-                    <p>Sourced from sustainable farms, our ingredients are pure, potent, and free from harsh chemicals.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💧</div>
-                    <h3>Deep Hydration</h3>
-                    <p>Our proprietary Hydro-Lock technology ensures your skin stays moisturized for 24 hours.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✨</div>
-                    <h3>Visible Results</h3>
-                    <p>95% of users saw a visible reduction in fine lines and dullness within just 2 weeks.</p>
-                </div>
+    <section class="featured">
+        <div class="container featured-grid">
+            <div class="featured-img">
+                <img src="pngtree-amber-skincare-bottles-png-image_14679985.png" alt="Amber Bottle Collection">
+            </div>
+            <div class="featured-text">
+                <h3>The Amber Collection</h3>
+                <p style="margin: 20px 0; color: #666;">
+                    Our signature line uses UV-protective amber glass to preserve the potency of our cold-pressed oils and active botanical extracts.
+                </p>
+                <ul style="margin-bottom: 30px; list-style-position: inside; color: #555;">
+                    <li>✓ 100% Organic Cold-Pressed Oils</li>
+                    <li>✓ Sustainable Glass Packaging</li>
+                    <li>✓ Cruelty-Free & Vegan</li>
+                </ul>
+                <a href="#" class="btn">Shop The Set</a>
             </div>
         </div>
     </section>
 
-    <section class="products container" id="products">
-        <h2 class="section-title">Best Sellers</h2>
-        <p class="section-subtitle">Discover the routines that are changing skin everywhere.</p>
+    <section class="ingredients">
+        <div class="container">
+            <p>"We believe that true luxury lies in simplicity. No fillers, no synthetics—just pure, active nature."</p>
+        </div>
+    </section>
+
+    <section class="collection container">
+        <h2 class="section-title">Curated Essentials</h2>
+        <span class="section-subtitle">Designed to work in harmony with your skin.</span>
 
         <div class="product-grid">
+            
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Serum Bottle" class="product-img">
+                <img src="pngtree-travel-size-lotions-compact-skincare-essentials-png-image_12989618.png" alt="Travel Essentials">
                 <div class="product-info">
-                    <h3 class="product-title">Radiance Vitamin C Serum</h3>
-                    <span class="product-price">$45.00</span>
-                    <a href="#" class="btn btn-sm">Add to Cart</a>
+                    <div class="product-name">Daily Hydration Kit</div>
+                    <div class="product-price">$45.00</div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Face Cream" class="product-img">
+                <img src="luxury-skincare-set-still-life-on-black-background-photo.jpeg" alt="Night Repair">
                 <div class="product-info">
-                    <h3 class="product-title">Night Repair Cream</h3>
-                    <span class="product-price">$55.00</span>
-                    <a href="#" class="btn btn-sm">Add to Cart</a>
+                    <div class="product-name">Night Repair Concentrate</div>
+                    <div class="product-price">$85.00</div>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1556228720-1957be83f3e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cleanser" class="product-img">
+                <img src="pngtree-cosmetics-beauty-whitening-skin-care-product-background-image_769233.jpg" alt="Pure Moisture">
                 <div class="product-info">
-                    <h3 class="product-title">Gentle Foam Cleanser</h3>
-                    <span class="product-price">$28.00</span>
-                    <a href="#" class="btn btn-sm">Add to Cart</a>
+                    <div class="product-name">Pure Moisture Cream</div>
+                    <div class="product-price">$60.00</div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <p class="testimonial-quote">"I have tried everything for my sensitive skin, but nothing works like GlowRenew. My skin has never felt softer or looked more radiant."</p>
-            <p><strong>- Sarah J., Verified Buyer</strong></p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer">
-                    <h4>GlowRenew.</h4>
-                    <p>Redefining natural beauty with science-backed skincare.</p>
-                </div>
-                <div class="footer">
-                    <h4>Shop</h4>
-                    <ul>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">Best Sellers</a></li>
-                        <li><a href="#">Sets & Bundles</a></li>
-                    </ul>
-                </div>
-                <div class="footer">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2026 GlowRenew Skincare. All rights reserved.
-            </div>
+            <p>&copy; 2026 GlowRenew Skincare. All rights reserved.</p>
         </div>
     </footer>
 
